@@ -4,6 +4,7 @@ import Login from './Components/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Register from './Components/Register';
 import Search from './Components/Search';
+import Viewall from './Components/Viewall';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
     <Route path='/' element={<Login/>}/>
     <Route path='/register' element={<Register/>}/>
     <Route path='/search' element={<Search/>}/>
+    <Route path='/viewall' element={<Viewall/>}/>
   
    </Routes>
    </BrowserRouter>
