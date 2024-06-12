@@ -4,7 +4,8 @@ const Login = () => {
     const [data,changeData]=useState(
         {
             "username":"",
-            "pass":""
+            "pass":"",
+            "confpass":""
         }
     )
     const inputHandler=(event)=>{
@@ -32,7 +33,7 @@ const Login = () => {
                                 </div></div>
                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name='pass' value={data.pass} onChange={inputHandler} />
+                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name='confpass' value={data.confpass} onChange={inputHandler} />
                                     <label for="floatingPassword"> Conform Password</label><br />
                                 </div></div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
