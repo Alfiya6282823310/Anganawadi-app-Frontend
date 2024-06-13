@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import Navbar from './Navbar'
 
 const Viewall = () => {
-    const [data,changeDta]=useState(
-        [
-            { "name":"Anusha","dob":"26-09-2014", "height":23, "weight":23}
-            { "name":"Anusha","dob":"26-09-2014", "height":23, "weight":23}
-            
-        ]
-    )
+    const [data,changeDta]=useState([])
+    const fetchData=()=>{
+        axios.post("http://localhost:8086/view",data).then(
+            (response)=>{
+                changeDta(response.data)
+            }
+        ).catch().finally()
+    }
+    useEffect(()=>{fetchData()},[])
     return (
         <div>
+            <Navbar/>
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -18,7 +23,7 @@ const Viewall = () => {
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">dob</th>
-                                    <th scope="col">hieght</th>
+                                    <th scope="col">parent</th>
                                     <th scope="col">weight</th>
                                 </tr>
                             </thead>
@@ -29,7 +34,7 @@ const Viewall = () => {
                                     return  <tr>
                                     <td>{value.name}</td>
                                     <td>{value.dob}</td>
-                                    <td>{value.height}</td>
+                                    <td>{value.parent}</td>
                                     <td>{value.weight}</td>
                                 </tr>
 

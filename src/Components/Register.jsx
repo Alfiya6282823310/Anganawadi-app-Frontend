@@ -1,4 +1,6 @@
+import axios from 'axios'
 import React, { useState } from 'react'
+import Navbar from './Navbar'
 
 const Register = () => {
     const [data,changeData]=useState(
@@ -22,9 +24,20 @@ const Register = () => {
     }
     const readValue=()=>{
         console.log(data)
+        axios.post("http://localhost:8086/",data).then(
+            (response)=>{
+                console.log(response,data)
+                if (response.data.status=="success") {
+                    alert("success")
+                } else {
+                    alert("error")
+                }
+            }
+        ).catch().finally()
     }
   return (
     <div>
+        <Navbar/>
         <div className="container">
             <div className="row">
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
